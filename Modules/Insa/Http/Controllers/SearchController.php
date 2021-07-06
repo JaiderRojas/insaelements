@@ -16,11 +16,11 @@ class SearchController extends Controller
 
     public function search(Request $request){
         $term = $request->get('term');
-        $querys = Element::where('name', 'LIKE', '%' . $term . '%')->get();
+        $querys = Element::where('element_name', 'LIKE', '%' . $term . '%')->get();
         $data = [];
         foreach ($querys as $query) {
             $data[] =[
-                'label' => $query->name
+                'label' => $query->element_name
             ];
         }
         return $data;

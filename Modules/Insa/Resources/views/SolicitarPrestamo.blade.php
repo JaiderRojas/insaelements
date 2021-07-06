@@ -166,7 +166,7 @@
                 '<select type="text" id="selectelements" name="element_id" class="form-control-sm">' +
                 '<option>Elegir Elemento</option>' +
                 '@foreach ($elements as $e)'+
-                    '<option value="{{ $e->id }}">{{ $e->name }}</option>'+
+                    '<option value="{{ $e->id }}">{{ $e->element_name }}</option>'+
                     '@endforeach ' +
             '</select>' +
             '</td>' +
@@ -198,7 +198,7 @@
 
              let td='@foreach ($elements as $e)'+
              '<td>'+
-                    '{{ $e->name }}'+
+                    '{{ $e->element_name }}'+
                     '</td>' +
             '<td>jajaj</td>' +
             '<td>jajaja</td>' +
