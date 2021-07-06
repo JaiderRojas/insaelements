@@ -1,0 +1,13 @@
+{
+    "name": "Insa",
+    "alias": "insa",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Insa\\Providers\\InsaServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
