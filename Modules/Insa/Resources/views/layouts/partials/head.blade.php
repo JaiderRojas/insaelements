@@ -7,8 +7,13 @@
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('AdminLTE-3.0.5/dist/css/adminlte.min.css')}}">
+
 
   <!-- Google Font: Source Sans Pro -->
 
@@ -17,4 +22,3 @@
    <!-- jquery para el search de cuentadante -->
  <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.css')}}">
 
- <STYLE>A {text-decoration: none;} </STYLE>

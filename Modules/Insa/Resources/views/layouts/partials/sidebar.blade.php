@@ -38,10 +38,19 @@
                   <p style="color: black;" >Solicitar Prestamo</p>
                 </a>
               </li>
-             
+
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="AutorizaSolicitud" class="nav-link active">
+                  <i class="fas fa-file-alt" style="color:orange;"></i>
+                  <p style="color: black;" >Autorizacion Solicitud</p>
+                </a>
+              </li>
+
             </ul>
           </li>
-         
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

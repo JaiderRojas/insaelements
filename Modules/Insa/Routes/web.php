@@ -11,26 +11,31 @@
 |
 */
 
-Route::prefix('insa')->group(function() {
-    Route::get('/index', 'InsaController@index');
+  //route de solicitar prestamo
+
+    Route::prefix('insa')->group(function() {
+
+    //Route::get('/index', 'InsaController@index');
 
     Route::get('/home', 'HomeController@index');
 
-    Route::get('/SolicitarPrestamo', 'SolicitarController@index');
-    Route::post('/SolicitarPrestamo/select', 'SolicitarController@show')->name('select');
-    // Route::get('/SolicitarPrestamo', 'SolicitarController@create')->name('authorizations');
-    // Route::post('/SolicitarPrestamo', 'SolicitarController@store');
 
-    Route::get('/search', 'SearchController@search')->name('search');
-    Route::get('/search{data}', 'SearchController@replace')->name('replace');
+    Route::get('/SolicitarPrestamo', 'SolicitarController@index')->name('index');
 
-    // Route::get('/SolicitarPrestamo', 'SearchController@index');
+    Route::post('/SolicitarPrestamo', 'SolicitarController@store')->name('store');
+
+    Route::get('/AutorizaSolicitud', 'AuthorizaController@index');
+
+//route pdf
+    Route::get('/pdf', 'PDFController@show')->name('show');
+
+//route administracion solo estan las vistas conectadas a un controlador
 
     Route::get('/administrador', 'VigilantController@index');
 
-    //Route::resource('/SolicitarPrestamo', 'SearchController@index');
-
-    Route::get('/RegistroPrestamo', 'LoanRecordController@index');
+    Route::get('/RegistroPrestamo', 'LoanRecordController@index')->name('lrindex');
+    Route::post('/RegistroPrestamo', 'LoanRecordController@show')->name('lrshow');
 
     Route::get('/Devolucion', 'ReturnController@index');
 });
+

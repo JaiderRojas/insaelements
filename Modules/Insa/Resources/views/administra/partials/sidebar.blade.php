@@ -9,7 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -24,7 +24,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-    
+
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="RegistroPrestamo"  class="nav-link">
@@ -38,7 +38,7 @@
                   <p style="color:black">Devoluciones</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
         </ul>

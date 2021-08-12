@@ -5,6 +5,12 @@ namespace Modules\Insa\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Movement;
+use App\Responsability;
+use App\People;
+use App\Element;
+use App\Inventory;
+use App\MovementDetail;
 
 class LoanRecordController extends Controller
 {
@@ -14,20 +20,35 @@ class LoanRecordController extends Controller
      */
     public function index()
     {
-        return view('insa::RegistroPrestamo');
+        //   $responsabilities = Responsability::with('movements')->get();
+        //   $peoples = People::all();
+        //   //solo uno ->pluck('nombre')->get();
+        // $query = trim($request->get('people_id'));
+        // if ($request) {
+        // $people = People::where('name', 'LIKE', '%' . $query . '%')->paginate(2);
+        //,['people'=>$people, 'peoples'=>$peoples, 'people_id' =>$query, 'responsabilities' =>$responsabilities]);
+        // }
+        $nombre="a";
+        $people = People::where('name', 'LIKE', '%' . $nombre . '%')->first();
+        $id=$people->id;
+        $responsability = Responsability::where('id_cliente', 'LIKE', '%' . $id . '%')->first();
+        $movement_id = $responsability->movement_id;
+        $movement = Movement::where('id', 'LIKE', '%' . $movement_id . '%')->first();
+        $movement_details=$movement->movement_details;
+        return view('insa::RegistroPrestamo',
+         ['responsability'=>$responsability,
+         'people'=> $people,
+        'movement'=>$movement,
+        'movement_details'=>$movement_details]);
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
-     */
-    public function create()
-    {
-        return view('insa::create');
-    }
+
+
+    */
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,9 +65,35 @@ class LoanRecordController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(request $request)
     {
-        return view('insa::show');
+
+        $nombre=$request->nombre;
+        $people = People::where('name', 'LIKE', '%' . $nombre . '%')->first();
+        if ($people==null) {
+            $nombre="a";
+        $people = People::where('name', 'LIKE', '%' . $nombre . '%')->first();
+        $id=$people->id;
+        $responsability = Responsability::where('id_cliente', 'LIKE', '%' . $id . '%')->first();
+        $movement_id = $responsability->movement_id;
+        $movement = Movement::where('id', 'LIKE', '%' . $movement_id . '%')->first();
+        $movement_details=$movement->movement_details;
+        return view('insa::RegistroPrestamo', [
+            'responsability'=>$responsability,
+            'people'=> $people,
+             'movement'=>$movement,
+             'movement_details'=>$movement_details]);
+        }
+        $id=$people->id;
+        $responsability = Responsability::where('id_cliente', 'LIKE', '%' . $id . '%')->first();
+        $movement_id = $responsability->movement_id;
+        $movement = Movement::where('id', 'LIKE', '%' . $movement_id . '%')->first();
+        $movement_details=$movement->movement_details;
+        return view('insa::/RegistroPrestamo',
+        ['responsability'=>$responsability,
+         'people'=> $people,
+         'movement'=>$movement,
+          'movement_details'=>$movement_details]);
     }
 
     /**
